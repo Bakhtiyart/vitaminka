@@ -1,0 +1,36 @@
+<div class="swiper-viewport v-swiper asdfsd">
+  <div id="slideshow{{ module }}" class="swiper-container">
+    <div class="swiper-wrapper"> 
+      {% for banner in banners %}
+      <div class="swiper-slide text-center" style="background-image: url({{ banner.image }}) ">
+        {% if banner.link %}
+        <a href="{{ banner.link }}">
+          <h2> {{ banner.title }} </h2>
+        </a>{% else %}
+          <h2>{{ banner.title }}  </h2>
+        {% endif %}
+      </div>
+      {% endfor %} 
+    </div>
+  </div>
+  <div class="swiper-pagination slideshow{{ module }}"></div>
+  <div class="swiper-pager">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+$('#slideshow{{ module }}').swiper({
+	mode: 'horizontal',
+	slidesPerView: 1,
+	pagination: '.slideshow{{ module }}',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+  autoplay: 5000,
+  speed: 1000,
+    autoplayDisableOnInteraction: true,
+	loop: true
+});
+--></script>
